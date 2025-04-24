@@ -3,6 +3,7 @@ import Button from "./Button";
 import { TiLocationArrow } from "react-icons/ti";
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
+import { IoMenu } from "react-icons/io5";
 
 function NavBar() {
     const navContainerRef = useRef(null);
@@ -15,7 +16,7 @@ function NavBar() {
     const { y:currentScrollY } = useWindowScroll(); 
     const [isNavVisible , setIsNavVisible] = useState(false);
 
-    const toggleAudioIndicator = ()=>{
+    const toggleAudioIndicator =()=>{
        setIsAudioPlaying((prev)=> !prev);
        setIsIndicatorActive((prev)=>!prev);
     };
@@ -47,10 +48,11 @@ function NavBar() {
 
     useEffect(()=>{
      if(isAudioPlaying){
+      audioElementRef.current.classList.remove('hidden')
       audioElementRef.current.play();
      }
      else{
-      audioElementRef.current.play();
+      audioElementRef.current.pause();
      }
     },[isAudioPlaying]);
   return (
@@ -75,27 +77,55 @@ function NavBar() {
                  />
                </div>
 
-               <div className="w-fit flex justify-center items-center transition-all"
+              <div className="flex justify-center text-white">
+
+               <div className="w-fit justify-center items-center transition-all sm:flex hidden"
                >
                   {RightNavData.map((item ,id)=>(
                     <Button id={id}  key={id} title={item} NavRightBtn={true}/>
                   ))}
-                  <button className="ml-10 flex items-center justify-center "
-                  onClick={toggleAudioIndicator}>
-                    <audio ref={audioElementRef}
-                     className="hidden"
-                     src="/audio/loop.mp3"
-                     loop
-                    >
-                      </audio>
-                    {[1,2,3,4].map((bar)=>{
-                       <div key={bar}
-                       className={`indicator-line text-white ${isIndicatorActive?'active' :''}`}
-                       style={{animationDelay:`${bar * 0.1}s`}}/>
-                      })}
+               </div>
+
+               <div className="sm:hidden flex justify-center items-center">
+               <IoMenu className="w-10 h-5"/>
+               </div>
+
+               <div className="mr-5">
+               <button
+                    className="ml-6 flex items-center justify-center h-10 w-10 bg-slate-950 p-2 rounded-full"
+                    onClick={toggleAudioIndicator}
+                  >
+                    {/* Audio element is always present */}
+                    <audio ref={audioElementRef} className="hidden" src="/audio/loop.mp3" loop />
+
+                    {isAudioPlaying ? (
+                      // Audio bars when playing
+                      <div className="flex space-x-1">
+                        {[1, 2, 3, 4].map((bar) => (
+                          <div
+                            key={bar}
+                            className={`indicator-line bg-white w-1 h-4 ${isIndicatorActive ? 'active' : ''}`}
+                            style={{ animationDelay: `${bar * 0.1}s` }}
+                          />
+                        ))}
+                      </div>
+                    ) : (
+                      // Play state (Before clicking)
+                      <span className="text-white">▶</span>
+                    )}
                   </button>
                </div>
-            </nav>
+               {/* <div className="h-10 w-10 bg-amber-50 flex items-center justify-center rounded-full">
+                {isAudioPlaying ? 
+                <AiFillPauseCircle 
+                 onClick={()=>setIsAudioPlaying(!isAudioPlaying) }
+                className="h-7 w-7" /> : 
+                <FaCirclePlay 
+                 onClick={()=>setIsAudioPlaying(!isAudioPlaying) }
+                 className="h-7 w-7" />}
+                </div> */}
+            </div>
+           </nav>
         </header>
     </div>
   )

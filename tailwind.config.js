@@ -13,6 +13,11 @@ export default {
         'robert-medium' : ['robert-medium', 'sans-serif'],
         'robert-regular' : ['robert-regular', 'sans-serif']
       },
+      screens: {
+        'xs': '475px',
+        '3xl': '1600px',
+        'sm' :'826px',
+      },
       colors:{
         blue:{
           50:'#DFDFF0',
