@@ -30,7 +30,7 @@ This is a modern, responsive frontend project built with **React** and powered b
 git clonehttps://github.com/Aditya-Dev-ops/Zentry-Web-App.git 
 
 # Navigate into the project
-cd project-name
+cd Zentry-Web-App
 
 # Install dependencies
 npm install
