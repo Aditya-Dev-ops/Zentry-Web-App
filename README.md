@@ -27,7 +27,7 @@ This is a modern, responsive frontend project built with **React** and powered b
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/project-name.git
+git clonehttps://github.com/Aditya-Dev-ops/Zentry-Web-App.git 
 
 # Navigate into the project
 cd project-name
