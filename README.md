@@ -1,8 +1,39 @@
-# React + Vite
+# 🌟 Animated Frontend Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a modern, responsive frontend project built with **React** and powered by **GSAP (GreenSock Animation Platform)** to deliver smooth, engaging user experiences. The project showcases how subtle animations can elevate a user interface and bring your site to life.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔧 Tech Stack
+
+- ⚛️ React  
+- 🎞️ GSAP (GreenSock Animation Platform)  
+- 💅 CSS Modules / TailwindCSS *(choose the one you used)*  
+- 📦 Vite / Create React App *(mention your project setup)*
+
+---
+
+## ✨ Features
+
+- Scroll-triggered animations  
+- Smooth entrance and exit effects  
+- Responsive layout  
+- Clean component structure  
+- Mobile-first design
+
+---
+
+## 🚀 Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/project-name.git
+
+# Navigate into the project
+cd project-name
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev  # or npm start
